@@ -8,7 +8,7 @@ public class Evento {
 	private String horario;
 
 	public String getNome() {
-		return nome;
+		return nome; 
 	}
 
 	public void setNome(String nome) {
