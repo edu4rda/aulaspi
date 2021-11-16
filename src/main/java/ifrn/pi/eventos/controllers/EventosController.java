@@ -16,7 +16,7 @@ public class EventosController {
 
 	@RequestMapping("/eventos/form")
 	public String form() {
-		return "eventos/formEvento";
+		return "formEvento";
 	}
 	
 	@PostMapping("/eventos")
@@ -25,6 +25,6 @@ public class EventosController {
 		System.out.println(evento);
 		er.save(evento);
 		
-		return "eventos/evento-adicionado";
+		return "evento-adicionado";
 	}
 }
