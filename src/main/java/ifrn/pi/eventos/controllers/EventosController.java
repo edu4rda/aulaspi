@@ -25,7 +25,6 @@ public class EventosController {
 	public String form() {
 		return "eventos/formEvento";
 	}
-
 	@PostMapping
 	public String adicionar(Evento evento) {
 
@@ -34,16 +33,13 @@ public class EventosController {
 
 		return "eventos/evento-adicionado";
 	}
-
 	@GetMapping
 	public ModelAndView listar() {
-
 		List<Evento> eventos = er.findAll();
 		ModelAndView mv = new ModelAndView("eventos/lista");
 		mv.addObject("eventos", eventos);
 		return mv;
-
-	}
+}
 
 	@GetMapping("/{id}")
 	public ModelAndView detalhar(@PathVariable Long id) {
@@ -60,5 +56,7 @@ public class EventosController {
 		md.addObject("evento", evento);
 		
 		return md;
-	}
+	  }
+    }
+  }
 }
