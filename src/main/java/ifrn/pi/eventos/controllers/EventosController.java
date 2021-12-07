@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import ifrn.pi.eventos.models.Convidado;
-import ifrn.pi.eventos.models.Evento;
+import ifrn.pi.eventos.modelos.models.Convidado;
+import ifrn.pi.eventos.modelos.models.Evento;
 import ifrn.pi.eventos.repositories.ConvidadoRepository;
 import ifrn.pi.eventos.repositories.EventoRepository;
 
@@ -89,5 +89,21 @@ public class EventosController {
 		
 		return "redirect:/eventos/{idEvento}";
 		
+	}
+	@GetMapping("/{id}/remover")
+	public String apagarEvento(@PathVariable Long id) {
+		
+		Optional<Evento> opt = er.findById(id);
+		
+		if(!opt.isEmpty()) {
+			Evento evento = opt.get();
+			
+			List<Convidado> convidados = cr.findByEvento(evento);
+			
+			cr.deleteAll(convidados);
+			er.delete(evento);
+			
+		}
+		return "redirect:/eventos";
 	}
 }

@@ -1,4 +1,4 @@
-package ifrn.pi.eventos.models;
+package ifrn.pi.eventos.modelos.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
